@@ -8,7 +8,7 @@ HELP=["Duration (seconds)","Source bytes","Destination bytes","Packet count","Fa
 if not (ROOT/"models/intrusion_model.joblib").exists():
     import train_model
 bundle=joblib.load(ROOT/"models/intrusion_model.joblib"); model=bundle["model"]
-df=pd.read_csv(ROOT/"data/iot_network_traffic.csv")
+df=pd.read_csv(ROOT/"iot_network_traffic.csv")
 metrics=json.loads((ROOT/"models/metrics.json").read_text())
 st.set_page_config(page_title="IoT Cloud Intrusion Detection",page_icon="🛡️",layout="wide")
 st.title("🛡️ IoT-Enabled Cloud Intrusion Detection")
