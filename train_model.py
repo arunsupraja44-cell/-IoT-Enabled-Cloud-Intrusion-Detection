@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 ROOT=Path(__file__).resolve().parent
 FEATURES=["duration_sec","src_bytes","dst_bytes","packet_count","failed_logins","unique_dst_ports","connection_rate","hour","protocol_code"]
-df=pd.read_csv(ROOT/"data/iot_network_traffic.csv")
+df=pd.read_csv(ROOT/"iot_network_traffic.csv")
 X,y=df[FEATURES],df.label.astype(int)
 Xtr,Xte,ytr,yte=train_test_split(X,y,test_size=.25,random_state=42,stratify=y)
 model=RandomForestClassifier(n_estimators=180,max_depth=12,min_samples_split=4,class_weight="balanced",random_state=42,n_jobs=-1)
